@@ -3,9 +3,29 @@
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Ian Felix",
     "email": "ianfelix030@gmail.com"
   },
-  "private": true
+  "scripts": {
+    "fix": "eslint --fix src",
+    "prepare": "cd .. && cd .. && husky install puf/api/.husky"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "./src/**/*.{js,ts,md,json}": [
+      "yarn fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.4.0"
+  }
 }
