@@ -1,0 +1,11 @@
+{
+  "name": "puf-api",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Ian Felix",
+    "email": "ianfelix030@gmail.com"
+  },
+  "private": true
+}
