@@ -9,7 +9,11 @@
     "email": "ianfelix030@gmail.com"
   },
   "scripts": {
-    "fix": "eslint --fix src",
+    "fix": "run-s \"fix:* {@}\" --",
+    "fix:lint": "eslint --fix --no-error-on-unmatched-pattern",
+    "fix:format": "prettier --write",
+    "format": "yarn fix:format 'src/**/*.(jsx|js|tsx|ts|md|json)'",
+    "lint": "yarn fix:lint src/**/*.{jsx,js,tsx,ts,md,json}",
     "prepare": "cd .. && cd .. && husky install puf/api/.husky"
   },
   "commitlint": {
@@ -26,6 +30,7 @@
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "husky": "^7.0.0",
-    "lint-staged": "^12.4.0"
+    "lint-staged": "^12.4.0",
+    "npm-run-all": "^4.1.5"
   }
 }
